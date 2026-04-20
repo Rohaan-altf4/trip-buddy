@@ -51,6 +51,7 @@ export default function TripSettle() {
   const [friends, setFriends] = useState<Friend[]>(SEED_FRIENDS);
   const [expenses, setExpenses] = useState<Expense[]>(SEED_EXPENSES);
   const [nameInput, setNameInput] = useState("");
+  const [tripName, setTripName] = useState("Goa Trip");
   const [calcKey, setCalcKey] = useState(0);
   const settleRef = useRef<HTMLDivElement | null>(null);
 
@@ -78,6 +79,7 @@ export default function TripSettle() {
     setFriends([]);
     setExpenses([]);
     setNameInput("");
+    setTripName("My Trip");
     setCalcKey(0);
   };
 
@@ -103,7 +105,7 @@ export default function TripSettle() {
   return (
     <div className="relative min-h-screen bg-background text-foreground">
       <FloatingShapes />
-      <Navbar onReset={reset} />
+      <Navbar onReset={reset} tripName={tripName} setTripName={setTripName} />
 
       <main className="mx-auto max-w-7xl px-4 sm:px-5 py-6 lg:py-8 pb-28 lg:pb-12 space-y-6">
         <div className="lg:hidden">
