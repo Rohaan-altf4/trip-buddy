@@ -17,10 +17,22 @@ let _uidCounter = 0;
 const uid = () => `id-${++_uidCounter}-${Date.now().toString(36)}`;
 
 export default function TripSettle() {
-  const [friends, setFriends] = useState<Friend[]>([]);
-  const [expenses, setExpenses] = useState<Expense[]>([]);
+  const [friends, setFriends] = useState<Friend[]>([
+    { id: "f1", name: "Rahul" },
+    { id: "f2", name: "Priya" },
+    { id: "f3", name: "Arjun" },
+    { id: "f4", name: "Sneha" },
+  ]);
+  const [expenses, setExpenses] = useState<Expense[]>([
+    { id: "e1", description: "Hotel Stay", amount: 8000, paidBy: "f1", splitBetween: ["f1", "f2", "f3", "f4"] },
+    { id: "e2", description: "Cab to Airport", amount: 1200, paidBy: "f2", splitBetween: ["f2", "f3"] },
+    { id: "e3", description: "Dinner at Beach Shack", amount: 2400, paidBy: "f4", splitBetween: ["f1", "f2", "f3", "f4"] },
+    { id: "e4", description: "Water Sports", amount: 3600, paidBy: "f3", splitBetween: ["f1", "f3", "f4"] },
+    { id: "e5", description: "Breakfast", amount: 900, paidBy: "f2", splitBetween: ["f1", "f2", "f3", "f4"] },
+    { id: "e6", description: "Souvenirs", amount: 1500, paidBy: "f1", splitBetween: ["f1", "f2", "f4"] },
+  ]);
   const [nameInput, setNameInput] = useState("");
-  const [tripName, setTripName] = useState("My Trip");
+  const [tripName, setTripName] = useState("Goa Trip");
   const [calcKey, setCalcKey] = useState(0);
   const settleRef = useRef<HTMLDivElement | null>(null);
 
