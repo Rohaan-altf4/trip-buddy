@@ -68,25 +68,11 @@ export default function TransactionFlow({ transactions, balances }: Props) {
                     </div>
                   </div>
 
-                  <svg
-                    viewBox="0 0 120 24"
-                    className="flex-1 min-w-[100px] h-6"
-                    preserveAspectRatio="none"
-                  >
-                    <line x1="2" y1="12" x2="100" y2="12" className="flow-arrow animate-dash" />
-                    <polygon points="100,6 118,12 100,18" fill="oklch(0.75 0.13 280)" />
-                    <text
-                      x="51"
-                      y="9"
-                      textAnchor="middle"
-                      fontSize="9"
-                      fontFamily="JetBrains Mono, monospace"
-                      fontWeight="600"
-                      fill="oklch(0.97 0.01 250)"
-                    >
-                      {inr(t.amount)}
-                    </text>
-                  </svg>
+                  <div className="flex-1 flex items-center justify-center min-w-[80px]">
+                    <span className="rounded-full bg-primary/20 border border-primary/40 px-3 py-1 text-sm font-mono-num font-semibold text-primary-glow">
+                      {inr(t.amount)} →
+                    </span>
+                  </div>
 
                   <div className="flex items-center gap-2">
                     <div className="text-right">
