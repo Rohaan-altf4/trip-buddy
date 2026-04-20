@@ -1,26 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
+import TripSettle from "@/components/TripSettle";
 
 export const Route = createFileRoute("/")({
-  component: Index,
+  component: TripSettle,
+  head: () => ({
+    meta: [
+      { title: "TripSettle — Split trip expenses fairly" },
+      {
+        name: "description",
+        content:
+          "Settle group trip expenses fairly with the Inclusion-Exclusion Principle. Add friends, log expenses, and get the minimum payments to balance everyone.",
+      },
+      { property: "og:title", content: "TripSettle — Split trip expenses fairly" },
+      {
+        property: "og:description",
+        content: "Add friends, log expenses, and instantly settle up in the fewest payments.",
+      },
+    ],
+  }),
 });
-
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
-
-function Index() {
-  return <PlaceholderIndex />;
-}
