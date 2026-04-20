@@ -16,42 +16,11 @@ import MobileBottomBar from "./MobileBottomBar";
 let _uidCounter = 0;
 const uid = () => `id-${++_uidCounter}-${Date.now().toString(36)}`;
 
-const SEED_FRIENDS: Friend[] = [
-  { id: "f1", name: "Rahul" },
-  { id: "f2", name: "Priya" },
-  { id: "f3", name: "Arjun" },
-  { id: "f4", name: "Sneha" },
-];
-
-const SEED_EXPENSES: Expense[] = [
-  {
-    id: "e1",
-    description: "Hotel",
-    amount: 4000,
-    paidBy: "f1",
-    splitBetween: ["f1", "f2", "f3", "f4"],
-  },
-  {
-    id: "e2",
-    description: "Cab to Airport",
-    amount: 800,
-    paidBy: "f2",
-    splitBetween: ["f2", "f3"],
-  },
-  {
-    id: "e3",
-    description: "Dinner",
-    amount: 1500,
-    paidBy: "f4",
-    splitBetween: ["f1", "f2", "f3", "f4"],
-  },
-];
-
 export default function TripSettle() {
-  const [friends, setFriends] = useState<Friend[]>(SEED_FRIENDS);
-  const [expenses, setExpenses] = useState<Expense[]>(SEED_EXPENSES);
+  const [friends, setFriends] = useState<Friend[]>([]);
+  const [expenses, setExpenses] = useState<Expense[]>([]);
   const [nameInput, setNameInput] = useState("");
-  const [tripName, setTripName] = useState("Goa Trip");
+  const [tripName, setTripName] = useState("My Trip");
   const [calcKey, setCalcKey] = useState(0);
   const settleRef = useRef<HTMLDivElement | null>(null);
 
